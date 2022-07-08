@@ -2,8 +2,9 @@ class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
         total = sum(nums)
         lsum = 0
+        rsum = total
         for i in range(len(nums)):
-            rsum = total-nums[i]-lsum
+            rsum-=nums[i]
             if lsum == rsum:
                 return i
             lsum+=nums[i]
