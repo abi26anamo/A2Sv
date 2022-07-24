@@ -11,11 +11,11 @@ class Solution:
             lst.append(head.val)
             head = head.next 
         sorted_lst = sorted(lst)
-        count = 0 
+        i = 0 
         while cur:
-            cur.val = sorted_lst[count]
+            cur.val = sorted_lst[i]
             cur = cur.next
-            count += 1
+            i += 1
             
         return ans
         
