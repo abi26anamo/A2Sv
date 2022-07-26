@@ -1,32 +1,45 @@
 class Solution:
     def maxSumTwoNoOverlap(self, nums: List[int], firstLen: int, secondLen: int) -> int:
-        stfirst =0
-        endfirst = firstLen
-        stsecond = endfirst
-        endsecond = endfirst+secondLen
-        pfirst =0
-        psecond =0
-        ans =0
+        sub1 = 0
+        sub1end = firstLen
+        prefixsum1 =0
+        prefixsum2 =0
         n = len(nums)
-        while endfirst <= n:
-            pfirst =sum(nums[stfirst:endfirst])
-            stsecond=endfirst
-            endsecond = endfirst+secondLen
-            while endsecond <=n:
-                psecond= sum(nums[stsecond:endsecond])
-                stsecond+=1
-                endsecond+=1
-                ans = max(ans,pfirst+psecond)
-            stsecond = 0
-            endsecond = secondLen
-            while endsecond <= stfirst:
-                psecond =sum(nums[stsecond:endsecond])
-                stsecond+=1
-                endsecond+=1
-                ans = max(ans,pfirst+psecond)
-            stfirst+=1
-            endfirst+=1
+        ans =0
+        while sub1end <= n:
+            prefixsum1 = sum(nums[sub1:sub1end])
+            sub2 = sub1end
+            sub2end = sub1end+secondLen
+            while sub2end <=n:
+                prefixsum2 = sum(nums[sub2:sub2end])
+                sub2+=1
+                sub2end+=1
+                ans = max(ans,prefixsum1 + prefixsum2)
+            sub2=0
+            sub2end = secondLen
+            while sub2end <= sub1:
+                prefixsum2 = sum(nums[sub2:sub2end])
+                sub2+=1
+                sub2end+=1
+                ans = max(ans, prefixsum1+prefixsum2) 
+            sub1+=1
+            sub1end+=1
         return ans
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
             
             
             
