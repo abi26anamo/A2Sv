@@ -14,9 +14,4 @@ class Solution:
         
         
         
-        
-#         c= Counter(nums)
-#         c= sorted(c,key = lambda x:c[x] ,reverse = True)
-        
-#         return c[:k]
-          
+      
