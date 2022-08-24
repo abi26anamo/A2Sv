@@ -6,6 +6,7 @@ class Solution:
         for key,value in count.items():
              heapq.heappush(max_heap,(-value,key))
         while k >0:
-            res.append(heapq.heappop(max_heap)[1])
+            value,key = heapq.heappop(max_heap)
+            res.append(key)
             k-=1
         return res
