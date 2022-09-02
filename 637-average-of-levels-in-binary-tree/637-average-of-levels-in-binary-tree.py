@@ -6,15 +6,20 @@
 #         self.right = right
 class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
-        queue = []
-        curr = [root]
-        while curr:
-            queue.append(curr)
-            curr = []
-            for node in queue[-1]:
-                if node.left:
-                    curr.append(node.left)
-                if node.right:
-                    curr.append(node.right)
-            val = [[ node.val for node in curr ]for curr in queue]
-        return [sum(value)/len(value) for value in val]
+        queue = deque([root])
+        ans =[]
+        while queue:
+                levelSum = 0
+                levelCount = len(queue)
+                for _ in range(levelCount):
+                    popped = queue.popleft()
+                    levelSum+=popped.val
+                    if popped.left:
+                            queue.append(popped.left)
+                    if popped.right:
+                            queue.append(popped.right)
+                ans.append(levelSum/levelCount)
+        return ans
+                
+        
+        
