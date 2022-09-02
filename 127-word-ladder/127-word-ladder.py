@@ -1,7 +1,6 @@
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
-        if endWord not in wordList:
-            return 0
+
         q = []
         q.append(beginWord)
         res = 0
