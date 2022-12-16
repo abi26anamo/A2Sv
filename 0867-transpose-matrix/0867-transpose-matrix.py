@@ -9,11 +9,3 @@ class Solution:
                 ans.append(matrix[r][c])
             res.append(ans)
         return res
-        
-        
-        
-        # res = [[None]*m for _ in range(n)]
-        # for i in range(n):
-        #     for j in range(m):
-        #         res[j][i]=matrix[i][j]
-        # return res
