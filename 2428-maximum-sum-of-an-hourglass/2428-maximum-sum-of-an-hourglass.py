@@ -5,11 +5,11 @@ class Solution:
         maxsum=0
         for i in range(1,n-1):
             for j in range(1,m-1):
-                s =0
-                s+=sum(grid[i-1][j-1:j+2])
-                s+=sum(grid[i+1][j-1:j+2])
-                s+=grid[i][j]
-                maxsum = max(maxsum,s)
+                curr =0
+                curr+=sum(grid[i-1][j-1:j+2])
+                curr+=sum(grid[i+1][j-1:j+2])
+                curr+=grid[i][j]
+                maxsum = max(maxsum,curr)
         return maxsum
                 
         
