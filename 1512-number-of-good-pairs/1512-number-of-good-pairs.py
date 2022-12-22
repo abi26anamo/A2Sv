@@ -2,11 +2,12 @@ class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
         counter =0
         dic ={}
-        for i in nums:
-            if i in dic:
-                counter+=dic[i]
-                dic[i]+=1
+        
+        for num in nums:
+            if num in dic:
+                counter+=dic[num]
+                dic[num]+=1
             else:
-                dic[i]=1
+                dic[num]=1
         return counter
-                
+   
