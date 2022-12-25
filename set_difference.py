@@ -1,0 +1,6 @@
+n = int(input())
+english = set(input().split()[:n])
+b = int(input())
+french = set(input().split()[:b])
+at_least_one = english.difference(french)
+print(len(at_least_one))
