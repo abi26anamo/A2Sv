@@ -1,0 +1,6 @@
+e= int(input())
+english = set(int(e) for e in input().split())
+f = int(input())
+french = set(int(f) for f in input().split())
+english_only = english.union(french)
+print(len(english_only))
