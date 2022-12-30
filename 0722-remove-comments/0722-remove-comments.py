@@ -6,24 +6,26 @@ class Solution:
         in_multiline = False
         for line in source:
             i=0
-            len_line = len(line)
-            while i<len(line):
-                char = line[i]
-                if char =="/" and i+1 <len_line and line[i+1]=='/' and not in_multiline:
-                    i= len(line)
-                elif char =="/" and i+1 <len_line and line[i+1]=='*' and not in_multiline:
+            line_len = len(line)
+            while i <len(line):
+                character = line[i]
+                if character =='/' and i+1 <line_len and line[i+1] =='/' and not in_multiline:
+                    i=len(line)
+                elif character =='/' and i+1 < line_len and line[i+1]=='*' and not in_multiline:
                     in_multiline = True
                     i+=1
-                elif char =="*" and i+1 <len_line and line[i+1]=='/' and in_multiline:
+                elif character =='*' and i+1 <line_len and line[i+1]=='/' and in_multiline:
                     in_multiline = False
                     i+=1
                 elif not in_multiline:
-                    res+=char
+                    res+=character
                 i+=1
             if not in_multiline and res:
                 stack.append(res)
-                res =''
+                res=''
         return stack
+            
+    
             
         
                     
