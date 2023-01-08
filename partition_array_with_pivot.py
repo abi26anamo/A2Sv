@@ -1,4 +1,7 @@
- smaller_than_pivot = []
+class Solution:
+    def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
+        
+        smaller_than_pivot = []
         larger_than_pivot =[]
         is_equal = []
         
@@ -12,4 +15,3 @@
                 is_equal.append(nums[i])
                 
         return smaller_than_pivot +is_equal+larger_than_pivot
-        
