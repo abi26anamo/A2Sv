@@ -2,10 +2,9 @@ class Solution:
     def queensAttacktheKing(self, queens: List[List[int]], king: List[int]) -> List[List[int]]:
         
         queen_can_attack =[]
-        visited = []
+        queens= [(x,y) for x,y in queens]
         
-        for x,y in queens:
-            visited.append((x,y))
+     
         
         directions = {(-1,-1),(0,-1),(-1,0),(1,1),(1,0),(0,1),(1,-1),(-1,1)}
         
@@ -17,7 +16,7 @@ class Solution:
                     x_king+=x_dir
                     y_king+=y_dir
 
-                    if (x_king,y_king) in visited:
+                    if (x_king,y_king) in queens:
                         queen_can_attack+=[[x_king,y_king]]
                         break
 
