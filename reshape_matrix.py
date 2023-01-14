@@ -9,9 +9,8 @@ class Solution:
 
             for i in range(n):
                 for j in range(m):
-                    k = j+i*m
-                    one_D[k] = mat[i][j]
-                    k+=1
+                    one_D[i*m+j] = mat[i][j]
+                   
                     
             reshaped = [[0]*c for _ in range(r)]
             
