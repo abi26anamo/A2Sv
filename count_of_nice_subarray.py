@@ -13,12 +13,8 @@ class Solution:
 
             if prefix_sum-k in hash_map:
                 count+= hash_map[prefix_sum-k]
-                if prefix_sum in hash_map:
-                      hash_map[prefix_sum]+=1
-                else:
-                    hash_map[prefix_sum]=1
- 
-            elif prefix_sum in hash_map:
+            
+            if prefix_sum in hash_map:
                 hash_map[prefix_sum]+=1
             else:
                 hash_map[prefix_sum]=1
