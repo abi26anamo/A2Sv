@@ -1,9 +1,13 @@
 class Solution:
     def getRow(self, rowIndex: int) -> List[int]:
-        curr_row = [1 for _ in range(rowIndex+1)]
-        if rowIndex ==0:
-            return curr_row
-        prev = self.getRow(rowIndex-1)
-        for i in range(1,len(prev)):
-            curr_row[i] = prev[i-1]+prev[i]
-        return curr_row
+        def helper(i):
+            if i==0:
+                return [[1]]
+            curr = helper(i-1)
+            arr = [1]
+            for j in range(1,len(curr[-1])):
+                arr.append(curr[-1][j-1]+curr[-1][j])
+            arr.append(1)
+            curr.append(arr)
+            return curr
+        return helper(rowIndex)[-1]
