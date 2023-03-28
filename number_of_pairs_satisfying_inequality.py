@@ -20,6 +20,16 @@ class Solution:
                merged.append(r_arr[j])
                j+=1
            return merged
+           
+       def binarySearch(arr,target):
+           l,r = -1,len(arr)
+           while l+1 <r:
+               mid = (l+r)//2
+               if arr[mid]>=target:
+                   r = mid
+               else:
+                   l = mid
+           return r
 
        def mergesort(arr):
            if len(arr)==1:
@@ -29,7 +39,7 @@ class Solution:
            right = mergesort(arr[mid:])
            
            for i in left:
-               val = bisect_left(right,i-diff)               
+               val =binarySearch(right,i-diff)               
                self.count+=(len(right)-val)
            return merge([],left,right)
        mergesort(nums)
