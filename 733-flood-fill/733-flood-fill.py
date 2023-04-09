@@ -1,15 +1,24 @@
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
-        cur_color = image[sr][sc]
-        height = len(image)
-        width = len(image[0])
-        
-        def dfs(sr,sc):
-            if 0<=sr<height and 0<=sc<width and image[sr][sc] == cur_color and image[sr][sc]!=color:
-                image[sr][sc]=color 
-                dfs(sr+1,sc)
-                dfs(sr-1,sc)
-                dfs(sr,sc+1)
-                dfs(sr,sc-1)
-        dfs(sr,sc)
+        N,M = len(image),len(image[0])
+        #function that checks valid boundary
+        def inbound(row,col):
+            return  0<=row<N and 0<=col < M
+
+        def dfs(grid,row,col,new_color):
+            start_color = grid[row][col]
+            grid[row][col] = new_color
+
+            directions = [(-1,0),(0,-1),(0,1),(1,0)]
+
+            for r,c in directions:
+                new_row = row+r
+                new_col = col+c
+
+                if inbound(new_row,new_col) and grid[new_row][new_col]==start_color and grid[new_row][new_col]!=new_color:
+                    
+                    dfs(grid,new_row,new_col,new_color)
+        dfs(image,sr,sc,color)
         return image
+
+        
