@@ -11,8 +11,12 @@ class Solution:
     def getImportance(self, employees: List['Employee'], id: int) -> int:
         dic = {e.id:e for e in employees}
         def dfs(e):
-            imp = dic[e].importance
-            for s in dic[e].subordinates:
-                imp+=dfs(s)
-            return imp
+            importance=dic[e].importance
+            for sub_ord in dic[e].subordinates:
+                importance+=dfs(sub_ord)
+            return importance
         return dfs(id)
+
+        
+
+       
