@@ -6,18 +6,18 @@
 #         self.right = right
 class Solution:
     def tree2str(self, root: Optional[TreeNode]) -> str:
-        res = []
-        def tree2strHelper(root):
-            if not root:
+        def dfs(node,res):
+            if not node:
                 return
-
-            res.append(f"({root.val}" if res else str(root.val))
-            tree2strHelper(root.left)
-            if root.right and not root.left:
+            
+            res.append(f"({node.val}" if res else str(node.val))
+            dfs(node.left,res)
+            if node.right and not node.left:
                 res.append("()")
-            tree2strHelper(root.right)
+            dfs(node.right,res)
             res.append(")")
-
-        tree2strHelper(root)
-        return "".join(res[:-1])
+            return res
+        tree_to_str = dfs(root,[])
+        return "".join(tree_to_str[:-1])
+        
         
