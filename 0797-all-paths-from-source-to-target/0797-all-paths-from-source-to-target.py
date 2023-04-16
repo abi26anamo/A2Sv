@@ -9,4 +9,3 @@ class Solution:
                     dfs(i,path+[i])
         dfs(0,[0])
         return res
-                
