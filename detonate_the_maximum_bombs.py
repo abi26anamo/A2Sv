@@ -24,8 +24,6 @@ class Solution:
             
         max_detonated = 0
         for i in range(len(bombs)):
-            visited = set()
-            if i not in visited:
-                max_detonated = max(max_detonated,dfs(i,visited))
+                max_detonated = max(max_detonated,dfs(i,set()))
 
         return max_detonated
